@@ -36,9 +36,9 @@ public class DataType {
 //        boolean b5 = "true";
 //        boolean b6 = False;
         //무한루프 반드시 트루만 써야 함
-        while (true) {
-
-        }
+//        while (true) {
+//
+//        }
 
         //문자형
         //char : 단일문자를 저장!!, 홑따옴표 사용!!
@@ -49,6 +49,6 @@ public class DataType {
         //컨트롤 d누르면 줄복사
         System.out.println("100" + "200");
         //숫자와 문자열의 덧셈은 문자열 덧셈처리
-        System.out.println(100 + "200");
+//        System.out.println(100 + "200");
     }
 }
