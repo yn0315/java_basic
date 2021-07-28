@@ -21,7 +21,7 @@ public class Casting1 {
 
         char r = 'A';
         int o = r;
-        short p = (byte) o;//낮은 단계로 강제변환 시켜도
+        short p = (byte) o;//낮은 단계로 강제변환 시켜도 높은단계로 자동변환
         System.out.println("p = " + p);
     }
 }
