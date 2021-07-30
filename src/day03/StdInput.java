@@ -26,7 +26,7 @@ public class StdInput {
         System.out.printf("입력된 이름은 %s이고, 나이는 %d세 입니다.", name, age);
 
         // 4. 스캐너 자원 메모리 해제
-        sc.close();// 다 쓴 후에 꼭 작성, 이후에 3번 함수들 작성안됨
+        sc.close();// 다 쓴 후에 꼭 작성, 이후에 3번 함수들 작성하면 적용안됨
 
     }
 }

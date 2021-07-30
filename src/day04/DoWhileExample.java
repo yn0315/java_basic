@@ -11,6 +11,7 @@ public class DoWhileExample {
         int n = 0;
 
         //while은 시작조건이 false면 0회 실행된다.
+
        /* while (n != 0) {
             System.out.println("정수 (0입력시 종료) :");
             n = sc.nextInt();
@@ -21,7 +22,9 @@ public class DoWhileExample {
             System.out.println("정수 (0입력시 종료) :");
             n = sc.nextInt();
             total += n;
+
         } while (n != 0);
+
         System.out.println("입력 누적값:" + total);
         sc.close();
     }

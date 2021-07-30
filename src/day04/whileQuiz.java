@@ -20,12 +20,13 @@ public class whileQuiz {
 //            total += n;
 //            n++;
 //
-//        }
+//        }//while end
 
         for (int n = begin; n <= end; n++) {
             total += n;
-        }
+        }//for end
         System.out.printf("%d ~ %d 까지의 총합: %d",begin, end, total);
 
-    }
-}
+        sc.close();
+    }//main end
+}//class end
