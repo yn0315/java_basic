@@ -21,6 +21,7 @@ public class whileQuiz {
 //            n++;
 //
 //        }//while end
+        //횟수가 정해져있으면 for를 써야 함
 
         for (int n = begin; n <= end; n++) {
             total += n;
