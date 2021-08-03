@@ -59,20 +59,20 @@ public class LoopQuiz {
 
             if (arithmetic == "+") {
                 total = num1 + num2;
-                System.out.printf("%d + %d = ?\n", num1, num2);
+//                System.out.printf("%d + %d = ?\n", num1, num2);
             } else if (arithmetic == "-") {
                 total = num1 - num2;
                 if (num1 < num2) {
-                    System.out.printf("%d - %d = ? \n", num2, num1);
+//                    System.out.printf("%d - %d = ? \n", num2, num1);
                 } else {
-                    System.out.printf("%d - %d = ?\n", num1, num2);
+//                    System.out.printf("%d - %d = ?\n", num1, num2);
                 }//end arithmetic inner if
             } else {
                 total = num1 * num2;
-                System.out.printf("%d * %d = ? \n", num1, num2);
+
 
             }//end arithmetic outer if
-
+            System.out.printf("%d %s %d = ? \n", num1, arithmetic,num2);
             System.out.print(">");
             int answer = sc.nextInt();
             if (answer == 0) {
