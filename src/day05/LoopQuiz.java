@@ -28,51 +28,75 @@ public class LoopQuiz {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("[문제를 푸시다가 지겨우면 0을 누르세요.]");
+        System.out.println("#엔터를 누르면 시작합니다.");
+        System.out.println("==================================================");
+        sc.nextLine();
 
+        int max = 0;
 
         System.out.println("'난이도를 입력하세요 [상,중,하]");
         System.out.print(">");
         String grade = sc.next();
         switch (grade) {
             case "상":
+                max = 1000;
                 System.out.println("상급난이도 입니다. 1~1000까지 범위로 출제됩니다.");
                 break;
             case "중":
+                max = 100;
                 System.out.println("중급난이도 입니다. 1~100까지 범위로 출제됩니다.");
                 break;
             case "하":
+                max = 20;
                 System.out.println("하급난이도 입니다. 1~10까지 범위로 출제됩니다.");
                 break;
+            default:
+                max = 1000;
+                System.out.println("난이도를 잘못 입력했습니다. 상급난이도로 출제됩니다.");
         }//end switch
 
         int correct = 0;
         int unCorrect = 0;
+
         while (true) {
 
-            int num1 = (int) (Math.random() * 20) + 1;
-            int num2 = (int) (Math.random() * 20) + 1;
+            int num1 = (int) (Math.random() * max) + 1;
+            int num2 = (int) (Math.random() * max) + 1;
 
-            int total;
-
-            int mark = (int) (Math.random() * 3);
-            String arithmetic = mark == 0 ? "+" : mark == 1 ? "-" : "*";
-
-            if (arithmetic == "+") {
-                total = num1 + num2;
-//                System.out.printf("%d + %d = ?\n", num1, num2);
-            } else if (arithmetic == "-") {
-                total = num1 - num2;
-                if (num1 < num2) {
-//                    System.out.printf("%d - %d = ? \n", num2, num1);
-                } else {
-//                    System.out.printf("%d - %d = ?\n", num1, num2);
-                }//end arithmetic inner if
-            } else {
-                total = num1 * num2;
+            int total = 0;
+            String mark = "";
+            int arithmetic = (int) (Math.random() * 3);
 
 
-            }//end arithmetic outer if
-            System.out.printf("%d %s %d = ? \n", num1, arithmetic,num2);
+            switch (arithmetic) {
+                case 0:
+                    mark = "+";
+                    total = num1 + num2;
+                    break;
+
+                case 1:
+                    mark = "-";
+
+                    if (num1 == num2) {
+                        num2--;
+                    }
+                    if (num1 < num2) {
+                        int temp = num1;
+                        num1 = num2;
+                        num2 = temp;
+                    }//end if
+
+                    total = num1 - num2;
+                    break;
+
+                case 2:
+                    mark = "*";
+                    total = num1 * num2;
+                    break;
+
+            }//end arithmetic switch
+
+            System.out.printf("%d %s %d = ? \n", num1, mark, num2);
             System.out.print(">");
             int answer = sc.nextInt();
             if (answer == 0) {

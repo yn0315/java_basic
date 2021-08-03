@@ -13,12 +13,13 @@ public class ArrayPushQuiz {
         //    if (s1.equals(s2)) (o)
 
         Scanner sc = new Scanner(System.in);
-//
+
         System.out.println("# 먹고싶은 음식을 입력하세요!!");
         System.out.println("# 입력을 중지하려면 <그만>이라고 입력하세요");
 
-//        String[] menu = new String[0];
-        String[] menu = {};
+        //배열변수 선언 = 배열객체생성
+        // String[] menu = new String[0];
+        String[] menu = {};//이렇게 써도 무방
 
         while (true) {
             //음식명을 입력받고
@@ -28,6 +29,7 @@ public class ArrayPushQuiz {
 
             //공간을 확보 -> 사이즈가 기존배열보다 1개 큰 배열 생성
             String[] temp = new String[menu.length + 1];
+
             //기존의 음식들을 임시배열로 이동
             for (int i = 0; i < menu.length; i++) {
                 temp[i] = menu[i];
@@ -35,6 +37,7 @@ public class ArrayPushQuiz {
 
             //새로운음식을 사이즈 큰 임시배열의 마지막 인덱스에 추가
             temp[temp.length - 1] = select;
+
             //원본배열로 임시배열의 주소를 이동
             menu = temp;
             temp = null;
