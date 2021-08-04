@@ -48,7 +48,7 @@ public class ArrayQuiz2 {
                 //임시배열 데이터 오른쪽으로 옮기기
                 for (int i = temp.length - 1; idx < i; i--) {
                     temp[i] = temp[i - 1];
-                    break;
+
                 }//end for
 
                 temp[idx] = plusData;
@@ -59,6 +59,7 @@ public class ArrayQuiz2 {
                 System.out.println("다시 입력해주세요");
             }
             System.out.println(Arrays.toString(menu));
+            break;
         }//end while
 
     }//end main
