@@ -9,7 +9,7 @@ public class ArrayDeleteQuiz {
 
 
         String[] tvxq = {"영웅재중", "최강창민", "시아준수", "믹키유천", "유노윤호"};
-        int idx = -1;
+
 
         Scanner sc = new Scanner(System.in);
 
@@ -22,7 +22,7 @@ public class ArrayDeleteQuiz {
             System.out.print(">");
             String member = sc.next();
 
-
+            int idx = -1;
             for (int i = 0; i < tvxq.length; i++) {
                 if (member.equals(tvxq[i])) {
                     idx = i;
@@ -36,10 +36,10 @@ public class ArrayDeleteQuiz {
                 System.out.println(tvxq[idx] + "을 삭제합니다.");
                 String[] temp = new String[tvxq.length - 1];
 
-                for (int i =idx; i < tvxq.length -1; i++) {
+                for (int i =idx; i < tvxq.length-1; i++) {
                     tvxq[i] =tvxq[i + 1];
                 }
-                for (int i = idx; i < temp.length; i++) {
+                for (int i = 0; i < temp.length; i++) {
                     temp[i] = tvxq[i];
                 }
 
