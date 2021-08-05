@@ -43,7 +43,7 @@ public class ArrayQuiz2 {
                 for (int i = 0; i < menu.length; i++) {
                     temp[i] = menu[i];
 
-                }
+                }//end for
 
                 //임시배열 데이터 오른쪽으로 옮기기
                 for (int i = temp.length - 1; idx < i; i--) {
@@ -57,9 +57,11 @@ public class ArrayQuiz2 {
 
             } else {
                 System.out.println("다시 입력해주세요");
-            }
+                sc.close();
+                break;
+            }//end if
             System.out.println(Arrays.toString(menu));
-            break;
+
         }//end while
 
     }//end main

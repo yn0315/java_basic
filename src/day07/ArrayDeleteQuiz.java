@@ -36,6 +36,7 @@ public class ArrayDeleteQuiz {
                 System.out.println(tvxq[idx] + "을 삭제합니다.");
                 String[] temp = new String[tvxq.length - 1];
 
+                //삭제 알고리즘
                 for (int i =idx; i < tvxq.length-1; i++) {
                     tvxq[i] =tvxq[i + 1];
                 }
@@ -47,6 +48,7 @@ public class ArrayDeleteQuiz {
                 temp = null;
 
                 System.out.println(Arrays.toString(tvxq));
+                sc.close();
                 break;
             } else {
                 System.out.printf("%s는 없는 이름입니다.", member);
