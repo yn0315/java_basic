@@ -17,6 +17,7 @@ public class Roulette {
         if (playerNum < 2 || playerNum > 4) {
             System.out.println("인원수가 올바르지 않습니다. game over");
             return;
+            //메인함수탈출리턴
         }
 
         //플레이어의 이름들을 저장할 배열
@@ -75,22 +76,14 @@ public class Roulette {
             //사망판정
             if (magazine[bulletPosition]) {
                 System.out.printf("\n빵!![%s]님 사망..\n", players[turn]);
-                bulletNum--;
-
-                //idx번호 찾기//숙제
-                for (int i = 0; i < players.length; i++) {
-                    if (players[turn].equals(players[i]))
-                        idx = i;
-
-                }
 
                 //플레이어 삭제를 위해 임시배열생성
-                String[] temp = new String[players.length - 1];
 
                 //원본배열 위치 옮기기(삭제)
-                for (int i = idx; i < players.length - 1; i++) {
+                for (int i = turn; i < players.length - 1; i++) {
                     players[i] = players[i + 1];
                 }
+                String[] temp = new String[players.length - 1];
                 //배열 복사
                 for (int i = 0; i < temp.length; i++) {
                     temp[i] = players[i];
@@ -98,22 +91,42 @@ public class Roulette {
                 //원본배열에 옮기기
                 players = temp;
                 temp = null;
+                playerNum--;
 
-                System.out.println(Arrays.toString(players));
-                System.out.println(bulletNum);
+                System.out.println("남은인원:" + Arrays.toString(players));
+                System.out.println(playerNum);
 
+                //탄창 배열에서 총알이 나간 위치를 재조정
+                magazine[bulletPosition] = false;
+                bulletNum--;
+
+                //게임 종료조건 판단
+                //남은 플레이어가 1명일 때, 총알이 모두 소진되었을 때
                 //숙제//총알이 0이 아니면 턴을 넘겨라
-                if (bulletNum != 0) {
-                    turn++;
-                    if (turn == players.length - 1) {
-                        turn = 0;
-                    }//end in inner if
-                }else {
+                if (bulletNum == 0) {
+                    System.out.println("\n 총알이 모두 발사되었습니다. 게임을 종료합니다.");
+                    System.out.println("남은인원정보:" + Arrays.toString(players));
+                    break;
+
+                } else if (playerNum == 1) {
+                    System.out.println("\n단 한 명만 살아남았습니다. 게임을 종료합니다.");
+                    System.out.println("최후생존자:" + players[0]);
                     sc.close();
                     break;
+                } else {
+                    System.out.println("\n남은 인원으로 게임을 계속 진행합니다.");
+                    System.out.println("남은 인원정보:" + Arrays.toString(players));
+
+                    //사망시에는 turn 조정이 필요없음 다음사람이 그대로 이어받아서
+                    //근데 마지막 애가 죽으면 문제생김 turn이 0으로 되어야 함
+
+                    if (turn == players.length) {
+                        //혹시 사망자가 마지막 플레이어면 턴을 첫번째로 돌려놓는다.
+                        turn = 0;
+                    }
+                    continue;
                 }
                 //end in outer if
-
 
             } else {
                 //생존한 경우: 턴을 넘김
