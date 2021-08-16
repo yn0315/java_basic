@@ -65,7 +65,10 @@ public class Matrix {
                 {25,26,27}
             }
         };
+
+        System.out.println("3차원배열");
         System.out.println(arr3d[2][0][1]);
+        System.out.println("==========================================");
 
         int[][][] arr3dTest = new int[2][4][3];
         //iter엔터 3번
