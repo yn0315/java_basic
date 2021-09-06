@@ -20,6 +20,7 @@ public class Main {
         Player ko= new Player("고길동");
 
         ko.attack(kim);*/
+        //ko.attack(new player("둘리")); -가능
 
 
     }
