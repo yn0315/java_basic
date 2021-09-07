@@ -23,10 +23,11 @@ public class StudentController {
 
     //===================메서드 선언부=================//
     public Student[] printStudent() {
+
         return sArr;
     }
 
-    public int sumScore() {
+    private int sumScore() {
 
         int total = 0;
 
