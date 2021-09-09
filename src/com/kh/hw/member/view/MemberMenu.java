@@ -312,12 +312,9 @@ public class MemberMenu {
     public void deleteOne() {
         System.out.println("삭제할 아이디를 입력해주세요.");
         String id = sc.next();
-        System.out.println("정말로 삭제하시겠습니까? Y/N");
-        String delAnswer = sc.next();
-
-        if (delAnswer.equalsIgnoreCase("y")) {
             mc.delete(id);
-        }
+
+
         if (!mc.delete(id)) {
             System.out.println("존재하지 않는 회원입니다.");
             mainMenu();

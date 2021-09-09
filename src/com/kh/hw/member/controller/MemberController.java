@@ -150,48 +150,27 @@ public class MemberController {
 
     public boolean delete(String id) {
         //앞으로 땡기고 마지막을 널로 변경
-        int delIdx = -1;
-        Member[] deleteMembers = new Member[10];
 
+        int count = existMemberNum();
+        int delIdx = -1;//인덱스에는 음수가 없기 때문에 못 찾았다는 증거
         //삭제인덱스찾기
-        for (int i = 0; i < existMemberNum(); i++) {
+        for (int i = 0; i < count; i++) {
             if (id.equals(m[i].getId())) {
-                deleteMembers = copyData(deleteMembers, m[i]);
+                delIdx = i;
+                break;//찾으면 바로 나와서 불필요한 반복을 피함
             }
         }
 
-//        for (Member member : m) {
-//            if(id.equals(member.getId())) {
-//
-//                return true;
-//            }
-//        }
+        //삭제 알고리즘
+        if (delIdx != -1) {
+            for (int i = delIdx; i < count - 1; i++) {
+                m[i] = m[i + 1];
+            }
+            m[count - 1] = null;//마지막 데이터 null로 변경
+            return true;
+        }
+
         return false;
-    }
-
-    //회원정보 삭제를 위해 데이터를 복사하는 메서드
-
-    private Member[] copyData(Member[] target, Member delMember) {
-        //배열의 중간데이터 삭제
-        Member[] temp = new Member[10];
-
-        //인덱스 번호
-        int delIdx = -1;
-
-
-        for (int i = delIdx; i < m.length - 1; i++) {
-            m[i] = m[i + 1];
-        }
-
-        Member[] copyTemp = new Member[m.length - 1];
-        for (int i = 0; i < copyTemp.length; i++) {
-            copyTemp[i] = m[i];
-        }
-        m = copyTemp;
-        copyTemp = null;
-
-        return m;
-
     }
 
     //회원정보를 전체 삭제하는 메서드
