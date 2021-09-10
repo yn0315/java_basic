@@ -4,14 +4,20 @@ package day14.inherit.player;
 public class Player extends Object{//부모클래스는 extends Object가 부모로 자동 지정됨, 안 써도 지정됨
 
     //공통 속성
-    String nickName;
-    int level;
-    int hp;
+    public String nickName;
+    public int level;
+    public int hp;
 
     //생성자
     public Player() {
         System.out.println("부모 객체 Player 생성!");
 
+    }
+
+    public Player(String nickName) {
+        this.nickName = nickName;
+        this.level = 1;
+        this.hp = 50;
     }
 
     //공통 기능
