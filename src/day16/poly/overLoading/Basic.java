@@ -17,10 +17,12 @@ public class Basic {
     int add(int x, String y) {
         return 0;
     }
+
     //리턴타입은 안봄 add(int,String)
 //    void add(int m,String n) {
 //
 //    }
+
     //add(String,int)
     void add(String m ,int n){
 
@@ -28,9 +30,6 @@ public class Basic {
 
     //add()
     void add(){}
-
-
-
 
 
     public static void main(String[] args) {

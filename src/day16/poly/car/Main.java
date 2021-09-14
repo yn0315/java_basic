@@ -21,6 +21,18 @@ public class Main {
         Driver park = new Driver();
         park.drive(new Boxster());
 
+        System.out.println("======================================");
+        Sonata mySonata = (Sonata)park.buyCar("소나타");//소나타타입(하위타입)으로 캐스팅해서 리턴받음
+        mySonata.run();
+        mySonata.joinClub();
+        sArr[0] = mySonata;//업캐스팅안해도 알아서 변환돼 car로 들어감
+
+        System.out.println("=================================");
+        CarShop carShop = new CarShop();
+        carShop.sellCar(mySonata);
+        int money = carShop.sellCar(b);
+        System.out.println("money = " + money + "만원");
+
 
     }
 }
