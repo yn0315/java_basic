@@ -5,4 +5,9 @@ public class Bulldog extends Dog implements Pet, Huntable{
     public void hunt(String target) {
         System.out.println("불독은 근육으로 사냥해요!");
     }
+
+    @Override
+    public void attack() {
+
+    }
 }
